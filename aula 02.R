@@ -80,3 +80,74 @@ min(vetor) # mostra o minimo
 max(vetor) #mostra o maximo
 summary(vetor) #Mostra infos resumidas do vetor
 boxplot(vetor)
+
+
+# Matrizes
+
+a <- matrix(1:9, byrow=F, nrow=3)
+b <- matrix(1:9, byrow=T, nrow=3)
+print(a)
+print(b)
+c <- matrix(1:9, byrow=T)
+print(c)
+
+# Assim, conclui-se que para a criação de uma matriz deve-se
+# determinar, nos primmeiros termos, a variação de n a k, no aspecto
+# byrow= configura-se se a contagem começará por coluna (em caso de T).
+# o termo nrow diz respeito ao número de colunas
+
+# construindo com um vetor de caracteres
+matrix(c('a', 'b', 'c', 'd'))
+matrix(c('a', 'b', 'c', 'd'), nrow=2)
+# qual é o ponto de utilizar o termo c?
+
+# imagine que precisemos construir duas matrizes, cada uma contendo
+# as faltas dos alunos em dois bimestres diferentes.
+
+alunos <- c('Aluno 1', 'Aluno 2', 'Aluno 3', 'Aluno 4')
+faltasMar <- c(3, 4, 0, 1)
+faltasAbr <- c(4, 5, 0, 2)
+
+faltas1Bim <- matrix(c(faltasMar, faltasAbr), byrow=F,nrow=4)
+row.names(faltas1Bim) <- alunos
+colnames(faltas1Bim) <- c('Marco', 'Abril')
+print(faltas1Bim)
+
+faltasMai <- c(1, 0, 0, 3)
+faltasJun <- c(0, 2, 0, 8)
+
+faltas2Bim <- matrix(c(faltasMai, faltasJun), byrow=F, nrow=4)
+colnames(faltas2Bim) <- c('Maio', 'Junho')
+row.names(faltas2Bim) <- alunos
+
+print(faltas2Bim)
+
+# Pode-se juntar matrizes através do comando cbind
+
+cbind(faltas1Bim, faltas2Bim)
+
+rbind(faltas1Bim, faltas2Bim)
+
+# nota-se que a difenreça está no fato de que cbind une pelas colunas, já rbind une 
+# pela linha. No caso, rbind é um erro estatístico, pois plota o mesmo aluno duas vezes.
+
+faltas <- cbind(faltas1Bim, faltas2Bim)
+faltas
+
+# Operações com matrizes:
+
+  # Adição
+faltas1Bim + faltas2Bim
+# haverá soma de cada elemento dada uma matriz (n,K)
+
+  # Subtração
+faltas1Bim - faltas2Bim
+# A subtração nada mais é do que uma adição negativa
+
+  # Multiplicação
+faltas1Bim * faltas2Bim
+
+# Pode-se também, selecionar dados com base em condições
+
+faltas[faltas > 1]
+faltas[faltas < 10]
