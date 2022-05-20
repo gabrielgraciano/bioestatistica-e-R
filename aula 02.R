@@ -151,3 +151,100 @@ faltas1Bim * faltas2Bim
 
 faltas[faltas > 1]
 faltas[faltas < 10]
+
+#   Divisão
+faltas1Bim/ faltas2Bim
+
+#   Transposta:
+t(faltas1Bim) #irá retornar a matriz transposta em questão
+
+# Selecionando elementos
+
+#Elemento
+faltas[1,1] # irá selecionar o elemento 1 na linha 1 e coluna 1
+
+faltas[1, c(1,2)] #irá selecionar as faltas da linha 1 nas colunas 1 e 2
+
+# Linha
+faltas[1,] #irá printar as faltas na linha 1, todas
+
+faltas['Aluno 1',] #irá retornar o mesmo da linha acima
+
+faltas['Aluno 1', 'Marco'] #irá retornar as faltas do aluno 1 em marçoi, repare que 
+# os dados foram nomeados
+
+faltas[c('Aluno 1', 'Aluno 2'),] # espera-se que printará as faltas dos alunos 1 e 2
+
+# teoria para o uso do prefixo c: é utilizado quando mais de uma variavel é selecionada em 
+# uma mesma posição
+
+# Coluna
+
+faltas[, 1]
+faltas[, 'Marco']
+faltas[, c('Marco', 'Junho')]
+
+# Selecionando com  base em condicionais
+
+faltas[faltas > 1]
+faltas[falta < 10] 
+
+# FATORES
+# são utilizados para armazenar os tipos de dados qualitativos
+
+genero_vector <- c('Masculino', 'Feminino', 'Feminino', 'Masculino', 'Masculino')
+fator_genero_vector <- factor(genero_vector)
+fator_genero_vector # como setou-se o conjunto universo de fatores disponiveis, este
+# comando irá printar os n fatores dados e seus k tipos
+
+levels(fator_genero_vector) <- c('M', 'F') # a partir de agora os fatores respondem 
+# por F e M, repare que os fatores foram nomeados termo a termo. Há forma de nomeá-los
+# rapidamente?
+
+fator_genero_vector
+
+# DaTA-FRAMES
+
+# um data frame é uma estrutura de dados utilizada para se armazenar tabelas de dados
+
+data(iris) # carregando conjunto de dados disponível no R?
+head(iris) # Primeiras linhas
+
+tail(iris) # printa as ultimas linhas do dataframe
+
+# Duvida: como definir qual é a porção head e tail de um dataframe?
+
+str(iris) #estrutura geral do dataframe
+
+dim(iris) #dimensões do dataframe
+
+colnames(iris) # nome das colunas do dataframe de iris
+
+row.names(iris) # termos nas linhas do dataframe de iris
+
+# selecionando elementos do dataframe
+
+iris[1,1] # pega a primeira linha e primeira coluna
+iris[1,] # printa a primeira linha de iris
+iris[, 1] #printa a primeira coluna de iris
+
+names(iris) # irá printar os nomes de iris
+iris[, 'Sepal.Length'] # printa a coluna com informações de comprimento da pétala
+
+iris$Sepal.Length #Mesma coluna
+
+# Duvida: qual a diferença entre a liha 232 e a linha 234?
+
+# Criando um dataframe
+
+nomes <- c('Alice', 'Gabriel', 'Júlia')
+idades <- c('17', '19', '18')
+
+sexo <- c('Feminin', 'Masculino', 'Feminino')
+sexo <- factor(sexo)
+levels(sexo) <- c('F', 'M', 'F')
+sexo
+# nota-se que renomeei as variáveis qualitativas (fatores) utilizando o comando levels
+trabalha <- c(F, T, T)
+pessoas <- data.frame(nomes, idades, sexo, trabalha)
+pessoas
