@@ -1,5 +1,8 @@
 library(igraph)
 
+# anotando a sequência dos comportamentos
+# anotei cada comportamento em duplicata. Ex.: 'PAR', 'AR', 'AR', 'AND', 'AND' na verdade é a sequência para PAR -> AR -> AND
+
 g <- graph(edges = c('PAR', 'AR', 'AR', 'AND', 'AND', 'FI', 'FI', 'GIR', 'GIR', 'FACE2', 'FACE2', 'FI',
                      'FI', 'AND', 'AND', 'PAR', 'PAR', 'FI', 'FI', 'AND', 'AND', 'AR', 'AR', 'AND', 'AND',
                      'GIR', 'GIR', 'CN', 'CN', 'FI', 'FI', 'AR', 'AR', 'FACE2', 'FACE2', 'FI', 'FI', 'GIR',
