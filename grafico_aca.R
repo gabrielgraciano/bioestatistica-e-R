@@ -1,6 +1,4 @@
 library(ggplot2)
-library(ggbreak)
-
 
 especie <- c('Mouse', 'Rat', 'Zebrafish', 'Hamster', 'Gerbil', 'Guinea Pig')
 contagem <- c(log(4696), log(6364), log(28), log(47), log(22), log(55))
